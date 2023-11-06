@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Operations</title>
+</head>
+<body>
+    <h1>Math Operations</h1>
+    <p>Choose an operation:</p>
+    <button onclick="redirectTo('/add')">Add</button>
+    <button onclick="redirectTo('/subtract')">Subtract</button>
+    <button onclick="redirectTo('/multiply')">Multiply</button>
+    <button onclick="redirectTo('/divide')">Divide</button>
+    
+    <p><a href="{{ url_for('about') }}">About Us</a></p>
+
+    <script>
+        function redirectTo(endpoint) {
+            window.location.href = endpoint;
+        }
+    </script>
+</body>
+</html>
