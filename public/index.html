@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Калькулятор</title>
+  </head>
+  <body>
+    <h1>Калькулятор</h1>
+
+    <div>
+      <input type="number" id="first" placeholder="Первое число" />
+      <input type="number" id="second" placeholder="Второе число" />
+    </div>
+
+    <div>
+      <button onclick="performOperation('add')">Сложить</button>
+      <button onclick="performOperation('subtract')">Вычесть</button>
+      <button onclick="performOperation('multiply')">Умножить</button>
+      <button onclick="performOperation('divide')">Разделить</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+      function performOperation(operation) {
+        const first = parseFloat(document.getElementById("first").value);
+        const second = parseFloat(document.getElementById("second").value);
+
+        fetch(`/${operation}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ first, second }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.error) {
+              document.getElementById(
+                "result"
+              ).textContent = `Fail: ${data.error}`;
+            } else {
+              document.getElementById(
+                "result"
+              ).textContent = `Success: ${data.result}`;
+            }
+          })
+          .catch((error) => {
+            document.getElementById(
+              "result"
+            ).textContent = `Error: ${error.message}`;
+          });
+      }
+    </script>
+  </body>
+</html>
