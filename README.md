@@ -1,4 +1,1 @@
-# Аттестация №1 по дисциплине «Клиент-серверное приложение»
-В данном репозитории, загружаете Ваш код HTTP серверного приложения в отдельную ветку.
-
-!! Ни в коем случае не commit-е изменения в [main](https://github.com/FCIM-ACS/Attestation-1/tree/main) ветку!
+bim bim bom bom i attestation gotova
