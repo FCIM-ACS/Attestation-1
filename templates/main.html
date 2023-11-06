@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Калькулятор</title>
+    <!-- Добавьте ссылку на файл стилей Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-200 p-8">
+    <div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
+        <h1 class="text-2xl font-bold mb-4">Выберите операцию:</h1>
+        <form method="POST">
+            <div class="mb-4">
+                <label for="first" class="block text-sm font-medium text-gray-600">Первое число:</label>
+                <input type="text" name="first" id="first" class="border rounded-md p-2 w-full" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="second" class="block text-sm font-medium text-gray-600">Второе число:</label>
+                <input type="text" name="second" id="second" class="border rounded-md p-2 w-full" required>
+            </div>
+
+            <div class="flex space-x-4">
+                <input type="submit" name="operation" value="add" class="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-blue-700">
+                <input type="submit" name="operation" value="subtract" class="bg-red-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-red-700">
+                <input type="submit" name="operation" value="multiply" class="bg-green-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-green-700">
+                <input type="submit" name="operation" value="divide" class="bg-yellow-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-yellow-700">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
