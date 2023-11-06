@@ -45,6 +45,24 @@
             margin: 10px;
             background-color: #fff;
         }
+
+        .calculator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .calculator input {
+            margin: 5px 0;
+        }
+
+        .calculator button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -62,8 +80,39 @@
         <section>
             <h2>Home</h2>
             <p>This is the home page content.</p>
+
+            <div class="calculator">
+                <input type="number" id="firstNum" placeholder="First Number">
+                <input type="number" id="secondNum" placeholder="Second Number">
+                <button id="calculate">Calculate</button>
+                <p id="result"></p>
+            </div>
         </section>
     </main>
+
+    <!-- Include a script to handle arithmetic operations -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.getElementById('calculate').addEventListener('click', async () => {
+            const firstNum = parseFloat(document.getElementById('firstNum').value);
+            const secondNum = parseFloat(document.getElementById('secondNum').value);
+
+            if (isNaN(firstNum) || isNaN(secondNum)) {
+                document.getElementById('result').textContent = 'Please enter valid numbers.';
+            } else {
+                try {
+                    const responseAdd = await axios.get(`http://localhost:8080/add?first=${firstNum}&second=${secondNum}`);
+                    if (responseAdd.status === 200) {
+                        document.getElementById('result').textContent = `Result: ${responseAdd.data}`;
+                    } else {
+                        document.getElementById('result').textContent = 'Failed to perform the operation.';
+                    }
+                } catch (error) {
+                    document.getElementById('result').textContent = 'Error: ' + error.message;
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

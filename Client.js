@@ -1,5 +1,6 @@
 const axios = require('axios');
-
+const cors = require('cors');
+app.use(cors());
 async function callServerEndpoints() {
     try {
         const responseAdd = await axios.get('http://localhost:8080/add?first=24&second=56');
