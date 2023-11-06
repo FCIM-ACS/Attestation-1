@@ -1,4 +1,7 @@
-# Аттестация №1 по дисциплине «Клиент-серверное приложение»
-В данном репозитории, загружаете Ваш код HTTP серверного приложения в отдельную ветку.
-
-!! Ни в коем случае не commit-е изменения в [main](https://github.com/FCIM-ACS/Attestation-1/tree/main) ветку!
+node express.js:
+Serverul ascultă la http://localhost:8080
+дальше запускаем команду node client.js  
+Success: 80
+Success: 6
+идет сложение двух значений ('http://localhost:8080/add?first=24&second=56');
+('http://localhost:8080/substract?first=11&second=5');
