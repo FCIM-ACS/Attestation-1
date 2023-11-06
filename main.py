@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, render_template
 
 app = Flask(__name__, template_folder="templates")
 
@@ -12,53 +12,19 @@ def about():
 
 @app.route('/add')
 def add():
-    try:
-        first = float(request.args['first'])
-        second = float(request.args['second'])
-        result = first + second
-        return jsonify({"result": result})
-    except ValueError as e:
-        return jsonify({"error": str(e)}, 400)
-    except KeyError:
-        return jsonify({"error": "Missing 'first' or 'second' parameter"}, 400)
+    return render_template('add.html')
 
 @app.route('/subtract')
 def subtract():
-    try:
-        first = float(request.args['first'])
-        second = float(request.args['second'])
-        result = first - second
-        return jsonify({"result": result})
-    except ValueError as e:
-        return jsonify({"error": str(e)}, 400)
-    except KeyError:
-        return jsonify({"error": "Missing 'first' or 'second' parameter"}, 400)
+    return render_template('subtract.html')
 
 @app.route('/multiply')
 def multiply():
-    try:
-        first = float(request.args['first'])
-        second = float(request.args['second'])
-        result = first * second
-        return jsonify({"result": result})
-    except ValueError as e:
-        return jsonify({"error": str(e)}, 400)
-    except KeyError:
-        return jsonify({"error": "Missing 'first' or 'second' parameter"}, 400)
+    return render_template('multiply.html')
 
 @app.route('/divide')
 def divide():
-    try:
-        first = float(request.args['first'])
-        second = float(request.args['second'])
-        if second == 0:
-            return jsonify({"error": "Division by zero"}, 400)
-        result = first / second
-        return jsonify({"result": result})
-    except ValueError as e:
-        return jsonify({"error": str(e)}, 400)
-    except KeyError:
-        return jsonify({"error": "Missing 'first' or 'second' parameter"}, 400)
+    return render_template('divide.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
